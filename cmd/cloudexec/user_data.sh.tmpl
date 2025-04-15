@@ -224,7 +224,11 @@ if [[ ! -d ${input_dir} ]]; then
 fi
 
 mkdir -p "${input_dir}/output"
-source "${home}/venv/bin/activate"
+if [[ -f "${home}/venv/bin/activate" ]]; then
+  source "${home}/venv/bin/activate"
+else
+  echo "⚠️ Skipping venv activation — /root/venv/bin/activate not found"
+fi
 
 # Update state to running
 update_state "running"

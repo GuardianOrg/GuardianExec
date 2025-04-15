@@ -55,6 +55,9 @@ func Load(configFilePath string) (Config, error) {
 	doSpacesAccessKey := os.Getenv("DIGITALOCEAN_SPACES_ACCESS_KEY")
 	doSpacesSecretKey := os.Getenv("DIGITALOCEAN_SPACES_SECRET_ACCESS_KEY")
 	doSpacesRegion := os.Getenv("DIGITALOCEAN_SPACES_REGION")
+	doUsername := os.Getenv("USERNAME")
+
+	config.Username = doUsername
 
 	// If all environment variables are set, use them and skip loading the config file
 	if doApiKey != "" && doSpacesAccessKey != "" && doSpacesSecretKey != "" && doSpacesRegion != "" {
