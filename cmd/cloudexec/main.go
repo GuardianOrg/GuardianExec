@@ -11,6 +11,7 @@ import (
 	"github.com/crytic/cloudexec/pkg/ssh"
 	"github.com/crytic/cloudexec/pkg/state"
 	"github.com/urfave/cli/v2"
+	"github.com/joho/godotenv"
 )
 
 var (
@@ -22,6 +23,11 @@ var (
 )
 
 func main() {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Info("Error loading .env file:", err)
+	}
+
 	app := &cli.App{
 		Name:  "cloudexec",
 		Usage: "easily run cloud based jobs",
