@@ -13,7 +13,10 @@ require (
 	golang.org/x/term v0.7.0
 )
 
-require github.com/joho/godotenv v1.5.1 // indirect
+require (
+	github.com/creack/pty v1.1.24 // indirect
+	github.com/joho/godotenv v1.5.1 // indirect
+)
 
 require (
 	github.com/BurntSushi/toml v1.2.1

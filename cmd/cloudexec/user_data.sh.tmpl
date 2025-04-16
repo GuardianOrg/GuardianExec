@@ -239,8 +239,8 @@ exit_code_flag="/tmp/cloudexec-exit-code"
 ########################################
 # Execute Job
 
-# Use Ctrl-C to detach from the tmux session
-echo "bind-key -n C-c detach" >"${home}/.tmux.conf"
+# Use Ctrl-D to detach from the tmux session
+echo "bind-key -n C-d detach" >"${home}/.tmux.conf"
 # Run the tmux command in the background
 echo "Attach to the tmux session with 'cloudexec attach'"
 tmux_session="cloudexec"
