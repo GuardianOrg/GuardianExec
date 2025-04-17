@@ -138,8 +138,8 @@ func Launch(config config.Config, serverSize string, serverRegion string, lc Lau
 		return fmt.Errorf("Failed to generate user data: %w", err)
 	}
 
-	log.Wait("Creating new %s server in %s for job %d", serverSize, config.DigitalOcean.SpacesRegion, jobID)
-	server, err := do.CreateDroplet(config, config.DigitalOcean.SpacesRegion, serverSize, userData, jobID, publicKey)
+	log.Wait("Creating new %s server in %s for job %d", serverSize, "sfo3", jobID)
+	server, err := do.CreateDroplet(config, "sfo3", serverSize, userData, jobID, publicKey)
 	if err != nil {
 		return fmt.Errorf("Failed to create server: %w", err)
 	}
