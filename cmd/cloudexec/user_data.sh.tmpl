@@ -122,6 +122,13 @@ s3cmd() {
 }
 
 upload_output() {
+	# Copy echidna-corpus to output folder if it exists
+	if [[ -d "${input_dir}/echidna-corpus" ]] && compgen -G "${input_dir}/echidna-corpus/*" >/dev/null; then
+		echo "Copying echidna-corpus to output folder..."
+		mkdir -p "${output_dir}/echidna-corpus"
+		cp -r "${input_dir}/echidna-corpus"/* "${output_dir}/echidna-corpus/" 2>/dev/null || true
+	fi
+	
 	if compgen -G "${output_dir}/*" >/dev/null; then
 		echo "Uploading results..."
 		s3cmd put -r "${output_dir}"/* "s3://${BUCKET_NAME}/job-${JOB_ID}/output/"
