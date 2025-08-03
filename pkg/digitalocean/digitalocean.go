@@ -360,7 +360,7 @@ func GetLatestSnapshot(config config.Config) (Snapshot, error) {
 
 	if latestSnapshot == nil {
 		return Snapshot{
-			ID:   "ubuntu-20-04-x64",
+			ID:   "ubuntu-22-04-x64",
 			Name: "fallback",
 		}, nil
 	}
