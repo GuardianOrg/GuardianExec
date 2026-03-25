@@ -43,6 +43,10 @@ func UploadDirectoryToSpaces(config config.Config, sourcePath string, destPath s
 			if err != nil {
 				return err
 			}
+			// Resolve relative symlink targets against the symlinks directory
+			if !filepath.IsAbs(target) {
+				target = filepath.Join(filepath.Dir(path), target)
+			}
 		}
 
 		// If this is a subdirectory, make sure the path ends with a trailing slash before we create it
